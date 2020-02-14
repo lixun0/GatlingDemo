@@ -14,6 +14,7 @@ class BasicSimulation extends Simulation {
 
   val httpConf = http
     .baseUrl("http://loadtest.v.fwmrm.net")
+    .userAgentHeader("freewheel")
 
   val scn = scenario("Load Test")
     .exec(
