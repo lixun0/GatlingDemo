@@ -23,6 +23,6 @@ class BasicSimulation extends Simulation {
     )
 
   setUp(
-    scn.inject(rampUsers(5000) during (10 seconds))
+    scn.inject(constantUsersPerSec(1000) during (10 seconds))
   ).protocols(httpConf)
 }
