@@ -10,7 +10,7 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import scala.concurrent.duration._
 
-class BasicSimulation extends Simulation {
+class PeridicallySimulation extends Simulation {
 
   val httpConf = http
     .baseUrl("https://svlcomlinearv6vip1.fwmrm.net")
