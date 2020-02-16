@@ -13,7 +13,7 @@ import scala.concurrent.duration._
 class BasicSimulation extends Simulation {
 
   val httpConf = http
-    .baseUrl("http://svlcomlinearv6vip1.fwmrm.net")
+    .baseUrl("https://svladvip4.fwmrm.net")
     .userAgentHeader("freewheel")
 
   val scn = scenario("Load Test")
