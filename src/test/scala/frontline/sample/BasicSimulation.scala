@@ -11,10 +11,11 @@ import io.gatling.http.Predef._
 import scala.concurrent.duration._
 
 class BasicSimulation extends Simulation {
-
   val httpConf = http
     .baseUrl("https://loadtest.v.fwmrm.net")
     .userAgentHeader("freewheel")
+    .shareConnections
+    .maxConnectionsPerHost(20)
 
   val scn = scenario("Load Test")
     .exec(
