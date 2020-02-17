@@ -15,7 +15,7 @@ class BasicSimulation extends Simulation {
     .baseUrl("https://loadtest.v.fwmrm.net")
     .userAgentHeader("freewheel")
     .shareConnections
-    .maxConnectionsPerHost(20)
+    .maxConnectionsPerHost(1)
 
   val scn = scenario("Load Test")
     .exec(
