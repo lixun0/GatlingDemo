@@ -16,6 +16,7 @@ class BasicSimulation extends Simulation {
     .userAgentHeader("freewheel")
     .shareConnections
     .maxConnectionsPerHost(1)
+    .enableHttp2
 
   val scn = scenario("Load Test")
     .exec(
@@ -24,6 +25,6 @@ class BasicSimulation extends Simulation {
     )
 
   setUp(
-    scn.inject(constantUsersPerSec(50*1000) during (120 seconds))
+    scn.inject(constantUsersPerSec(100*1000) during (120 seconds))
   ).protocols(httpConf)
 }
