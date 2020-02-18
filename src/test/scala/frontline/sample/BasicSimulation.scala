@@ -28,9 +28,7 @@ class BasicSimulation extends Simulation {
   setUp(
     scn.inject(constantUsersPerSec(qps) during (60 seconds))
   ).protocols(httpConf).throttle(
-    reachRps(50*1000) in (10 seconds),
+    reachRps(100*1000) in (10 seconds),
     holdFor(10 seconds),
-    jumpToRps(qps*2),
-    holdFor(50 seconds)
   )
 }
