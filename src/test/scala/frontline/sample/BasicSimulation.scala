@@ -16,7 +16,6 @@ class BasicSimulation extends Simulation {
     .userAgentHeader("freewheel")
     .shareConnections
     .maxConnectionsPerHost(1)
-    .enableHttp2
 
   val scn = scenario("Load Test")
     .exec(
