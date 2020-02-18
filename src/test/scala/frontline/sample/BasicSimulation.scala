@@ -26,9 +26,9 @@ class BasicSimulation extends Simulation {
   val qps = 500*1000
 
   setUp(
-    scn.inject(constantUsersPerSec(qps) during (60 seconds))
+    scn.inject(constantUsersPerSec(qps) during (2 minutes))
   ).protocols(httpConf).throttle(
-    reachRps(qps) in (30 seconds),
-    holdFor(2 minutes)
+    reachRps(qps) in (1 minutes),
+    holdFor(4 minutes)
   )
 }
