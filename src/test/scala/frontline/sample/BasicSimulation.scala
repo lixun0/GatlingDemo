@@ -14,10 +14,9 @@ class BasicSimulation extends Simulation {
   val httpConf = http
     .baseUrl("https://loadtest.v.fwmrm.net")
     .userAgentHeader("freewheel")
-    .header("Keep-Alive", "6000000")
     .header("Accept-Encoding", "gzip")
+    //use connection pool
     .shareConnections
-    .maxConnectionsPerHost(1)
 
   val scn = scenario("Load Test")
     .exec(
@@ -31,10 +30,8 @@ class BasicSimulation extends Simulation {
     scn.inject(constantUsersPerSec(qps) during (120 seconds))
   ).protocols(httpConf)
     .throttle(
+      // Warm up connection pool
     reachRps(qps) in (30 seconds),
-//    holdFor(5 seconds),
-//    reachRps(400*1000) in (10 seconds),
-//    reachRps(qps) in (15 seconds),
     holdFor(4 minutes)
   )
 }
