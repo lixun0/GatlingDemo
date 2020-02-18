@@ -14,7 +14,6 @@ class BasicSimulation extends Simulation {
   val httpConf = http
     .baseUrl("https://loadtest.v.fwmrm.net")
     .userAgentHeader("freewheel")
-    .shareConnections
     .maxConnectionsPerHost(1)
 
   val scn = scenario("Load Test")
@@ -24,6 +23,6 @@ class BasicSimulation extends Simulation {
     )
 
   setUp(
-    scn.inject(constantUsersPerSec(200*1000) during (120 seconds))
+    scn.inject(constantUsersPerSec(150*1000) during (1 seconds))
   ).protocols(httpConf)
 }
