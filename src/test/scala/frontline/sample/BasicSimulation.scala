@@ -12,12 +12,10 @@ import scala.concurrent.duration._
 
 class BasicSimulation extends Simulation {
   val httpConf = http
-    .baseUrl("https://loadtest.v.fwmrm.net")
+    .baseUrl("https://g3003.v.fwmrm.net")
     .userAgentHeader("freewheel")
     .header("Accept-Encoding", "gzip")
     //use connection pool
-    .shareConnections
-
   val scn = scenario("Load Test")
     .exec(
       http("Ad request")
@@ -27,7 +25,7 @@ class BasicSimulation extends Simulation {
   val qps = 300*1000
 
   setUp(
-    scn.inject(constantUsersPerSec(qps) during (120 seconds))
+    scn.inject(constantUsersPerSec(qps) during (60 seconds))
   ).protocols(httpConf)
     .throttle(
       // Warm up connection pool
