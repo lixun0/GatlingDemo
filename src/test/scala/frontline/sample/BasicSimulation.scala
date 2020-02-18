@@ -31,7 +31,7 @@ class BasicSimulation extends Simulation {
   ).protocols(httpConf)
     .throttle(
       // Warm up connection pool
-    reachRps(qps) in (30 seconds),
+    reachRps(qps) in (1 seconds),
     holdFor(4 minutes)
   )
 }
