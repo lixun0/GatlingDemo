@@ -12,7 +12,7 @@ import scala.concurrent.duration._
 
 class BasicSimulation extends Simulation {
   val httpConf = http
-    .baseUrl("https://g3003.v.fwmrm.net")
+    .baseUrl("http://ads-peacock-test.prd.ads.aws.fwmrm.net")
     .userAgentHeader("freewheel")
     .header("Accept-Encoding", "gzip")
     //use connection pool
