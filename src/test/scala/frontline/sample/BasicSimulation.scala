@@ -16,6 +16,7 @@ class BasicSimulation extends Simulation {
     .userAgentHeader("freewheel")
     .header("Keep-Alive", "6000000")
     .header("Accept-Encoding", "gzip")
+    .shareConnections
     .maxConnectionsPerHost(1)
 
   val scn = scenario("Load Test")
