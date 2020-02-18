@@ -12,7 +12,7 @@ import scala.concurrent.duration._
 
 class BasicSimulation extends Simulation {
   val httpConf = http
-    .baseUrl("https://loadtest.v.fwmrm.net")
+    .baseUrl("https://g3003.v.fwmrm.net")
     .userAgentHeader("freewheel")
     .maxConnectionsPerHost(1)
 
@@ -23,6 +23,6 @@ class BasicSimulation extends Simulation {
     )
 
   setUp(
-    scn.inject(constantUsersPerSec(60*1000) during (60 seconds))
+    scn.inject(constantUsersPerSec(100*1000) during (60 seconds))
   ).protocols(httpConf)
 }
